@@ -1,0 +1,47 @@
+;编写者： 同组同学：
+		NAME PRINTF
+		PUBLIC PRINTF	
+;子模块 PRINTF
+	;功能：以十进制形式输出AX中的值
+	;入口参数：AX-要输出的值
+	;出口参数：无
+.386	
+DATA 	SEGMENT USE16 PARA PUBLIC 'DATA'
+DATA 	ENDS
+CODE 	SEGMENT USE16 PARA PUBLIC 'CODE'
+		ASSUME CS:CODE,DS:DATA	
+PRINTF 	PROC    FAR     ;输出AX的数值
+		PUSH SI
+		PUSH DI
+		PUSH CX
+		TEST AX,8000H
+		JE PRIN    ;正数
+		PUSH AX
+		MOV DL,2DH     ;输出'-'
+		MOV AH,2
+		INT 21H
+		POP AX
+		SUB AX,1
+		NOT AX
+PRIN:	MOV  SI,10
+		XOR  CX,CX
+NEXT:	
+		MOV  DX,0
+		DIV  SI
+		PUSH  DX
+		INC  CX
+		CMP  AX,0	;商为0则完成转换
+		JNZ  NEXT
+OUTP:	
+		POP  DX
+		ADD  DL,30H
+		MOV  AH,2
+		INT  21H
+		LOOP OUTP 
+		POP CX
+		POP DI
+		POP SI
+		RET
+PRINTF  ENDP
+CODE    ENDS
+        END     

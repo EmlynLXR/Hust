@@ -1,0 +1,109 @@
+;编写者： 同组同学：
+		NAME FUN5
+		PUBLIC FUN5
+		EXTRN PRINTF:FAR
+.386
+;宏定义
+WRITE   MACRO  A          
+		LEA   DX, A           
+		MOV  AH, 9           
+		INT   21H   
+		ENDM 
+OUT1    MACRO   A         
+		MOV   DL,  A           
+		MOV   AH,  2    
+		INT    21H      
+		ENDM 		
+DATA 	SEGMENT USE16 PARA PUBLIC 'DATA'
+		N   	EQU   4
+		STR1	DB	0AH,0DH,'name=(stock price,sale price,sold number,sale number,profit margins)$'
+		STR2	DB	0AH,0DH,'name=(stock price,sale price,sold number,sale number,profit margins/profit rank)$'
+DATA 	ENDS
+CODE 	SEGMENT USE16 PARA PUBLIC 'CODE'
+		ASSUME CS:CODE,DS:DATA	
+FUN5 PROC FAR
+T5:		
+		MOV SI,BX
+		CALL WRITE1       ;输出网店1信息
+		WRITE STR1
+		OUT1 0AH
+		OUT1 0DH
+		MOV CL,N
+		ADD SI,6
+T51:	CALL WRITE1 
+		OUT1 '='
+		OUT1 '('
+		MOV AX,WORD PTR[SI+10]
+		CALL PRINTF
+		OUT1 ','
+		MOV AX,WORD PTR[SI+12]
+		CALL PRINTF
+		OUT1 ','
+		MOV AX,WORD PTR[SI+14]
+		CALL PRINTF
+		OUT1 ','
+		MOV AX,WORD PTR[SI+16]
+		CALL PRINTF
+		OUT1 ','
+		MOV AX,WORD PTR[SI+18]
+		CALL PRINTF
+		OUT1 ')'
+		OUT1 0AH
+		OUT1 0DH
+		DEC CL
+		JZ T52
+		ADD SI,20
+		JMP T51
+T52:	
+		MOV SI,BP
+		CALL WRITE1       ;输出网店2信息
+		WRITE STR2
+		OUT1 0AH
+		OUT1 0DH
+		MOV CL,N
+		ADD SI,6
+T53:	CALL WRITE1 
+		OUT1 '='
+		OUT1 '('
+		MOV AX,WORD PTR[SI+10]
+		CALL PRINTF
+		OUT1 ','
+		MOV AX,WORD PTR[SI+12]
+		CALL PRINTF
+		OUT1 ','
+		MOV AX,WORD PTR[SI+14]
+		CALL PRINTF
+		OUT1 ','
+		MOV AX,WORD PTR[SI+16]
+		CALL PRINTF
+		OUT1 ','
+		MOV AX,WORD PTR[SI+18]
+		CALL PRINTF
+		OUT1 ')'
+		OUT1 0AH
+		OUT1 0DH
+		DEC CL
+		JZ EXIT
+		ADD SI,20
+		JMP T53	
+EXIT:
+		RET
+FUN5 ENDP
+WRITE1 	PROC    ;SI,输出字符串，到0停止
+		PUSH SI
+		PUSH AX
+		PUSH DX
+W1_1:	MOV DL,[SI]
+		CMP DL,0
+		JE W1_END
+		MOV AH,2
+		INT 21H
+		INC SI
+		JMP W1_1
+W1_END:	POP DX
+		POP AX
+		POP SI
+		RET
+WRITE1	ENDP
+CODE    ENDS
+        END     
