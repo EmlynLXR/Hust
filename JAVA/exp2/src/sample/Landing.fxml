@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<SplitPane dividerPositions="0.1837270341207349" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="383.0" prefWidth="629.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Login">
+    <items>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="66.0" prefWidth="625.0">
+            <children>
+                <Label fx:id="title" layoutX="252.0" layoutY="14.0" text="登          陆" textFill="#5c0a41">
+                    <font>
+                        <Font name="Arial" size="24.0" />
+                    </font>
+                </Label>
+            </children></AnchorPane>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+            <children>
+                <Label layoutX="84.0" layoutY="185.0" prefHeight="28.0" prefWidth="86.0" text="密码">
+                    <font>
+                        <Font name="Arial Bold" size="15.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="UserName" layoutX="219.0" layoutY="130.0" prefHeight="30.0" prefWidth="262.0" />
+                <Label layoutX="85.0" layoutY="130.0" prefHeight="30.0" prefWidth="92.0" text="用户名">
+                    <font>
+                        <Font name="Arial Bold" size="15.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="UserPwd" layoutX="219.0" layoutY="184.0" prefHeight="30.0" prefWidth="262.0" />
+            <Label layoutX="89.0" layoutY="85.0" prefHeight="20.0" prefWidth="78.0" text="类型" />
+            <Button fx:id="login_btn" layoutX="402.0" layoutY="238.0" mnemonicParsing="false" onAction="#LoginIn" prefHeight="30.0" prefWidth="78.0" text="确认" />
+            <ComboBox fx:id="UserType" layoutX="219.0" layoutY="80.0" prefHeight="30.0" prefWidth="262.0" />
+            </children></AnchorPane>
+    </items>
+</SplitPane>

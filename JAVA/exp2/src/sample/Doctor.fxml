@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<SplitPane dividerPositions="0.27293577981651373" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="438.0" prefWidth="716.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.DoctorControl">
+    <items>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="136.0" prefWidth="714.0">
+            <children>
+            <Label layoutX="29.0" layoutY="33.0" prefHeight="11.0" prefWidth="39.0" text="姓名" />
+            <Label fx:id="UserName" layoutX="96.0" layoutY="33.0" prefHeight="20.0" prefWidth="102.0" />
+            <DatePicker fx:id="DatePickerStart" layoutX="251.0" layoutY="28.0" prefHeight="30.0" prefWidth="142.0" />
+            <Button fx:id="Exit" layoutX="650.0" layoutY="70.0" mnemonicParsing="false" onAction="#ExitEvent" text="退出" />
+            <Button fx:id="Search" layoutX="576.0" layoutY="70.0" mnemonicParsing="false" onAction="#SearchEvent" text="查询" />
+            <Label layoutX="216.0" layoutY="33.0" text="从" />
+            <Label layoutX="216.0" layoutY="75.0" text="到" />
+            <ComboBox fx:id="StartHour" layoutX="393.0" layoutY="28.0" />
+            <ComboBox fx:id="StartMinute" layoutX="476.0" layoutY="28.0" />
+            <ComboBox fx:id="EndHour" layoutX="393.0" layoutY="70.0" />
+            <ComboBox fx:id="EndMinute" layoutX="476.0" layoutY="70.0" />
+            <DatePicker fx:id="DatePickerEnd" layoutX="251.0" layoutY="70.0" prefHeight="30.0" prefWidth="142.0" />
+            </children></AnchorPane>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="341.0" prefWidth="714.0">
+         <children>
+            <TabPane layoutX="14.0" layoutY="8.0" prefHeight="262.0" prefWidth="698.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab text="病人列表">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="254.0" prefWidth="701.0">
+                           <children>
+                              <TableView fx:id="BRview" prefHeight="215.0" prefWidth="688.0">
+                                <columns>
+                                  <TableColumn fx:id="BRview_GHBH" prefWidth="130.0" text="挂号编号" />
+                                  <TableColumn fx:id="BRview_BRMC" prefWidth="169.0" text="病人名称" />
+                                    <TableColumn fx:id="BRview_GHRQ" prefWidth="199.0" text="挂号日期时间" />
+                                    <TableColumn fx:id="BRview_HZLB" prefWidth="166.0" text="号种类别" />
+                                </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                <Tab text="收入列表">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TableView fx:id="SRview" prefHeight="250.0" prefWidth="665.0">
+                                <columns>
+                                  <TableColumn fx:id="SRview_KSMC" prefWidth="107.0" text="科室名称" />
+                                  <TableColumn fx:id="SRview_YSBH" prefWidth="90.0" text="医生编号" />
+                                    <TableColumn fx:id="SRview_YSMC" prefWidth="91.0" text="医生名称" />
+                                    <TableColumn fx:id="SRview_HZLB" prefWidth="126.0" text="号种类别" />
+                                    <TableColumn fx:id="SRview_GHRC" prefWidth="121.0" text="挂号人次" />
+                                    <TableColumn fx:id="SRview_SRHJ" prefWidth="129.0" text="收入合计" />
+                                </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+              </tabs>
+            </TabPane>
+         </children></AnchorPane>
+    </items>
+</SplitPane>

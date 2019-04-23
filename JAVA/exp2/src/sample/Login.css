@@ -1,0 +1,107 @@
+.root {
+    -fx-background-image: url("background.jpg");
+    -fx-background-size: stretch stretch;
+    -fx-background-position: center center;
+}
+
+
+.button {
+    -fx-background-color: #e4daf6;
+}
+
+.button:hover {
+    -fx-background-color: #d5c4f2;
+}
+
+.combo-box {
+    -fx-background-insets: 0;
+    -fx-background-color: transparent;
+    -fx-border-style:solid;
+    -fx-border-color:transparent transparent  #d47dc5 transparent;
+}
+
+.combo-box:focused {
+    -fx-background-insets: 0;
+    -fx-background-color: transparent;
+    -fx-border-style:solid;
+    -fx-border-color:transparent transparent  #bb30a3 transparent;
+}
+
+.text-field {
+    -fx-background-insets: 0;
+    -fx-background-color: transparent;
+    -fx-border-style:solid;
+    -fx-border-color:transparent transparent  #d47dc5 transparent;
+}
+
+.text-field:focused {
+    -fx-background-insets: 0;
+    -fx-background-color: transparent;
+    -fx-border-style:solid;
+    -fx-border-color:transparent transparent  #bb30a3 transparent;
+}
+
+.table-view {
+    -fx-base: #ede3ec;
+    -fx-control-inner-background: #ede3ec;
+    -fx-background-color: #ede3ec;
+    -fx-table-cell-border-color: transparent;
+    -fx-table-header-border-color: transparent;
+    -fx-padding: 5;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: transparent;
+}
+
+.table-view .column-header, .table-view .filler {
+    -fx-size: 20;
+    -fx-border-width: 0 0 1 0;
+    -fx-background-color: transparent;
+    -fx-border-color:
+        transparent
+        transparent
+        derive(-fx-base, 80%)
+        transparent;
+    -fx-border-insets: 0 10 1 0;
+}
+
+.table-view .column-header .label {
+    -fx-font-size: 13pt;
+    -fx-font-family: "黑体";
+    -fx-text-fill: black;
+    -fx-alignment: center-left;
+    -fx-opacity: 1;
+}
+
+.table-view:focused .table-row-cell:filled:focused:selected {
+    -fx-background-color: -fx-focus-color;
+}
+
+/*设置每一列居中*/
+.table-row-cell{
+  -fx-alignment: center;
+}
+
+#DatePickerStart{
+    -fx-background-color: transparent;
+    -fx-border-style:solid;
+    -fx-border-color:transparent transparent  #d47dc5 transparent;
+}
+
+#DatePickerEnd{
+    -fx-background-color: transparent;
+    -fx-border-style:solid;
+    -fx-border-color:transparent transparent  #d47dc5 transparent;
+}
+
+#title{
+    -fx-font-family: "黑体";
+    -fx-font-size: 30px;
+}
+
+.label{
+    -fx-font-family: "黑体";
+    -fx-font-size: 17px;
+}
+

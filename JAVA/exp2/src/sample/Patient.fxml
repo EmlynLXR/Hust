@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<SplitPane dividerPositions="0.268348623853211" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="438.0" prefWidth="716.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.PatientControl">
+    <items>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="77.0" prefWidth="627.0">
+            <children>
+                <Label fx:id="title" layoutX="490.0" layoutY="43.0" text="门 诊 挂 号" textFill="#5c0a41">
+                    <font>
+                        <Font name="Arial" size="24.0" />
+                    </font>
+                </Label>
+            <Label layoutX="31.0" layoutY="31.0" prefHeight="20.0" prefWidth="39.0" text="姓名" />
+            <Label layoutX="31.0" layoutY="69.0" text="余额" />
+            <Label fx:id="UserName" layoutX="96.0" layoutY="33.0" prefHeight="20.0" prefWidth="102.0" />
+            <Label fx:id="UserBalance" layoutX="96.0" layoutY="69.0" prefHeight="20.0" prefWidth="102.0" />
+            </children></AnchorPane>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="330.0" prefWidth="674.0">
+            <children>
+                <Label layoutX="42.0" layoutY="82.0" text="号种类别">
+                    <font>
+                        <Font name="Arial Bold" size="15.0" />
+                    </font>
+                </Label>
+                <Label layoutX="335.0" layoutY="81.0" text="号种名称">
+                    <font>
+                        <Font name="Arial Bold" size="15.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="HZMC" layoutX="404.0" layoutY="75.0" />
+                <Label layoutX="335.0" layoutY="128.0" text="应缴金额">
+                    <font>
+                        <Font name="Arial Bold" size="15.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="JKJE" layoutX="109.0" layoutY="122.0" onAction="#GetLastCost" />
+                <Label layoutX="42.0" layoutY="128.0" text="交款金额">
+                    <font>
+                        <Font name="Arial Bold" size="15.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="YJJE" layoutX="404.0" layoutY="122.0" />
+                <TextField fx:id="SYJE" layoutX="109.0" layoutY="165.0" />
+                <Label layoutX="42.0" layoutY="169.0" text="剩余金额">
+                    <font>
+                        <Font name="Arial Bold" size="15.0" />
+                    </font>
+                </Label>
+                <Label layoutX="335.0" layoutY="169.0" text="挂号号码">
+                    <font>
+                        <Font name="Arial Bold" size="15.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="GHHM" layoutX="404.0" layoutY="165.0" />
+                <Label layoutX="42.0" layoutY="37.0" text="科室名称">
+                    <font>
+                        <Font name="Arial Bold" size="15.0" />
+                    </font>
+                </Label>
+                <Label layoutX="335.0" layoutY="36.0" text="医生姓名">
+                    <font>
+                        <Font name="Arial Bold" size="15.0" />
+                    </font>
+                </Label>
+                <Button fx:id="EnsureBtn" layoutX="176.0" layoutY="249.0" mnemonicParsing="false" onAction="#EnsureEvent" text="确定">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                </Button>
+                <Button fx:id="CleanBtn" layoutX="272.0" layoutY="249.0" mnemonicParsing="false" onAction="#CleanEvent" text="清除">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                </Button>
+                <Button fx:id="ExitBtn" layoutX="365.0" layoutY="249.0" mnemonicParsing="false" onAction="#ExitEvent" text="退出">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                </Button>
+            <ComboBox fx:id="KSMC" layoutX="109.0" layoutY="30.0" onAction="#ChooseKS" prefHeight="30.0" prefWidth="202.0" />
+            <ComboBox fx:id="YSMC" layoutX="404.0" layoutY="30.0" onAction="#ChooseYS" prefHeight="30.0" prefWidth="202.0" />
+            <ComboBox fx:id="HZLB" layoutX="109.0" layoutY="75.0" onAction="#ChooseHZ" prefHeight="30.0" prefWidth="202.0" />
+            </children></AnchorPane>
+    </items>
+</SplitPane>
